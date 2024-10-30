@@ -33,7 +33,10 @@ function playGame(){
     }
 
        
-
+    chance--;
+    chanceArea.textContent=`남은 기회: ${chance}번`;
+    history.push(userValue);
+ 
     if(userValue>computerNum){
         resultArea.style.color = "blue"
         resultArea.textContent="내려";
@@ -54,9 +57,6 @@ function playGame(){
         playButton.disabled=true;
      
     }
-    chance--;
-    chanceArea.textContent=`남은 기회: ${chance}번`;
-    history.push(userValue);
  
  
     
