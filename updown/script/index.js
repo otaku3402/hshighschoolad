@@ -32,10 +32,7 @@ function playGame(){
         return;
     }
 
-    chance--;
-    chanceArea.textContent=`남은 기회: ${chance}번`;
-    history.push(userValue);
-    
+       
 
     if(userValue>computerNum){
         resultArea.style.color = "blue"
@@ -44,6 +41,12 @@ function playGame(){
     }else if(userValue<computerNum){
         resultArea.style.color = "red"
         resultArea.textContent="올려";
+    }else if(chance == 0){
+        resultArea.textContent="실패하셨군요. 당신은 레즈입니다.";
+        chanceArea.innerHTML="성별을 초기화해주세요"
+        resultNum.innerText=`답은 ${computerNum}였습니다.`;
+        playButton.disabled=true;
+    }
     
     }else{
         resultArea.textContent="성공하셨군요. 당신은 게이입니다.";
@@ -51,13 +54,12 @@ function playGame(){
         playButton.disabled=true;
      
     }
+    chance--;
+    chanceArea.textContent=`남은 기회: ${chance}번`;
+    history.push(userValue);
  
-    if(chance == 0){
-        resultArea.textContent="실패하셨군요. 당신은 레즈입니다.";
-        chanceArea.innerHTML="성별을 초기화해주세요"
-        resultNum.innerText=`답은 ${computerNum}였습니다.`;
-        playButton.disabled=true;
-    }
+ 
+    
 }
 //게임의 승패 및 올림과 내림 출력, 남은 기회 등의 게임 활동 내용
 
